@@ -1,6 +1,24 @@
 # Pokemon Center Stock Monitor
 
-Automated monitoring system for Pokemon Center Elite Trainer Box availability with email notifications.
+# # Automated monitoring system for Pokemon Center Elite Trainer Box availability with email notifications.
+
+You will need to change out the email for yours, see /src/config.py for these changable properties:
+TARGET_URL = "https://www.pokemoncenter.com/search/destined-rivals-etb"
+TARGET_EMAIL = "Your email here"
+PRODUCT_ID = "100-10653"
+PRODUCT_NAME = "Pokémon TCG: Scarlet & Violet-Destined Rivals Pokémon Center Elite Trainer Box"
+
+Also need an .env file with the following properties to send the auto emails.
+FROM_EMAIL=.....
+EMAIL_PASSWORD=....
+EMAIL_PROVIDER=.....
+
+# # Learnings:
+
+1. Had to open the url slowly, or else already got flagged as bot
+2. Had to slow down speed of crawling to not appear as a bot
+3. Had to automatically click "I am not a robot.."
+4. Started solving the picture recapchas, But then my IP address
 
 ## Features
 
@@ -32,6 +50,8 @@ source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
+pip install selenium
+pip install webdriver-manager
 
 # to run:
 python src/pokemon_monitor.py
